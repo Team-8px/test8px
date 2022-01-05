@@ -1,28 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
 import { joinMembership } from "../actions/userActions";
+import { imageUploadsHandler } from "../util/imageUploads";
+
+/* 나중에 유효성 검사할때 사용해보자!! 
+
+  const {
+  register,
+  handleSubmit,
+  watch,
+  formState: { errors },
+} = useForm(); */
 
 const JoinMembershipScreen = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [accountname, setAccountname] = useState("");
+  const { register, handleSubmit } = useForm();
 
   const dispatch = useDispatch();
 
-  const onNext = (event) => {
-    dispatch(joinMembership(email, password, username, accountname));
+  const onSubmit = (data) => {
+    const { email, password, username, accountname, profileImg } = data;
+
+    const image = imageUploadsHandler(profileImg[0]);
+
+    dispatch(joinMembership(email, password, username, accountname, image));
   };
 
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <br />
+      <br />
+
+      <div>
+        <input
+          type="file"
+          accept="image/jpg,impge/png,image/jpeg,image/gif"
+          name="profileImg"
+          {...register("profileImg")}
+        ></input>
+      </div>
+
+      <br />
+      <br />
+      <br />
+
       <div>
         <input
           name="email"
           type="email"
           placeholder="이메일"
-          value={email}
-          onChange={(e) => setEmail(e.currentTarget.value)}
+          {...register("email")}
         />
       </div>
       <div>
@@ -30,8 +57,7 @@ const JoinMembershipScreen = () => {
           name="password"
           type="password"
           placeholder="비밀번호"
-          value={password}
-          onChange={(e) => setPassword(e.currentTarget.value)}
+          {...register("password")}
         />
       </div>
       <div>
@@ -39,8 +65,7 @@ const JoinMembershipScreen = () => {
           name="username"
           type="text"
           placeholder="사용자 이름"
-          value={username}
-          onChange={(e) => setUsername(e.currentTarget.value)}
+          {...register("username")}
         />
       </div>
       <div>
@@ -48,17 +73,14 @@ const JoinMembershipScreen = () => {
           name="accountname"
           type="text"
           placeholder="계정ID"
-          value={accountname}
-          onChange={(e) => setAccountname(e.currentTarget.value)}
+          {...register("accountname")}
         />
       </div>
 
       <div>
-        <button type="button" onClick={onNext}>
-          다음
-        </button>
+        <button>회원가입</button>
       </div>
-    </>
+    </form>
   );
 };
 
