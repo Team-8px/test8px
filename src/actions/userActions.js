@@ -80,11 +80,6 @@ export const joinMembership =
         payload: data,
       });
 
-      dispatch({
-        type: USER_LOGIN_SUCCESS,
-        payload: data,
-      });
-
       //회원가입 api에서 응답으로 토큰정보를 주지 않는다.
       //localStorage.setItem("userInfo", JSON.stringify(data));
     } catch (error) {
