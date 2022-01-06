@@ -7,10 +7,9 @@ export const imageUploadsHandler = async (files) => {
 
   formData.append("image", files);
 
-  const { filename } = await axios.post(
-    `${API_URL}/image/uploadfile`,
-    formData
-  );
+  const {
+    data: { filename },
+  } = await axios.post(`${API_URL}/image/uploadfile`, formData);
 
   return filename;
 };

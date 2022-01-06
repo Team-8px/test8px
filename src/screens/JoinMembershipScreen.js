@@ -18,10 +18,10 @@ const JoinMembershipScreen = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { email, password, username, accountname, profileImg } = data;
 
-    const image = imageUploadsHandler(profileImg[0]);
+    const image = await imageUploadsHandler(profileImg[0]);
 
     dispatch(joinMembership(email, password, username, accountname, image));
   };
