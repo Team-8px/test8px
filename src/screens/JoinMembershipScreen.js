@@ -15,9 +15,7 @@ import { imageUploadsHandler } from "../util/imageUploads";
 
 const JoinMembershipScreen = () => {
   const { register, handleSubmit } = useForm();
-
   const dispatch = useDispatch();
-
   const onSubmit = async (data) => {
     const { email, password, username, accountname, profileImg } = data;
 
