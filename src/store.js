@@ -7,12 +7,14 @@ import {
   userUpdateReducer,
 } from "./reducers/userReducers";
 import { productCreateReducer } from "./reducers/productReducers";
+import commentReducer from "./reducers/commentReducer";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userJoinMembership: userJoinMembershipReducer,
   productCreate: productCreateReducer,
   updateUserProfile: userUpdateReducer,
+  comment: commentReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
