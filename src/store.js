@@ -7,6 +7,7 @@ import {
   userUpdateReducer,
 } from "./reducers/userReducers";
 import { productCreateReducer } from "./reducers/productReducers";
+import { postCreateReducer } from "./reducers/postReducers";
 import commentReducer from "./reducers/commentReducer";
 
 const reducer = combineReducers({
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   userJoinMembership: userJoinMembershipReducer,
   productCreate: productCreateReducer,
   updateUserProfile: userUpdateReducer,
+  postCreate: postCreateReducer,
   comment: commentReducer,
 });
 
