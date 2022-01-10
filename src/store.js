@@ -8,6 +8,7 @@ import {
 } from "./reducers/userReducers";
 import { productCreateReducer } from "./reducers/productReducers";
 import { postCreateReducer } from "./reducers/postReducers";
+import commentReducer from "./reducers/commentReducer";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   productCreate: productCreateReducer,
   updateUserProfile: userUpdateReducer,
   postCreate: postCreateReducer,
+  comment: commentReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
