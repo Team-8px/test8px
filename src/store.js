@@ -7,12 +7,14 @@ import {
   userUpdateReducer,
 } from "./reducers/userReducers";
 import { productCreateReducer } from "./reducers/productReducers";
+import { postCreateReducer } from "./reducers/postReducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userJoinMembership: userJoinMembershipReducer,
   productCreate: productCreateReducer,
   updateUserProfile: userUpdateReducer,
+  postCreate: postCreateReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

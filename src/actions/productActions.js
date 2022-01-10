@@ -29,7 +29,7 @@ export const createProduct =
       };
 
       const { data } = await axios.post(`${API_URL}/product`, reqData, config);
-
+      console.log(data, "productActions");
       dispatch({
         type: PRODUCT_CREATE_SUCCESS,
         payload: data,
