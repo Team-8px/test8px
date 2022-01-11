@@ -6,8 +6,11 @@ import {
   userJoinMembershipReducer,
   userUpdateReducer,
 } from "./reducers/userReducers";
-import { productCreateReducer } from "./reducers/productReducers";
-import { postCreateReducer } from "./reducers/postReducers";
+import {
+  productCreateReducer,
+  productListReducer,
+} from "./reducers/productReducers";
+import { postCreateReducer, postListReducer } from "./reducers/postReducers";
 import commentReducer from "./reducers/commentReducer";
 
 const reducer = combineReducers({
@@ -17,6 +20,8 @@ const reducer = combineReducers({
   updateUserProfile: userUpdateReducer,
   postCreate: postCreateReducer,
   comment: commentReducer,
+  productList: productListReducer,
+  postList: postListReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
