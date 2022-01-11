@@ -8,7 +8,7 @@ import AddProductScreen from "./screens/AddProductScreen";
 import ProfileModification from "./screens/ProfileModification";
 import AddPostScreen from "./screens/AddPostScreen";
 import CommentScreen from "./screens/CommentScreen";
-
+import MyProfileScreen from "./screens/MyProfileScreen";
 
 const App = () => {
   return (
@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/user" component={ProfileModification} exact />
         <Route path="/post" component={AddPostScreen} exact />
         <Route path="/post/comment" component={CommentScreen} exact />
+        <Route path="/myprofile" component={MyProfileScreen} exact />
       </main>
       <Footer />
     </Router>
