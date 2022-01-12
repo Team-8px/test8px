@@ -1,4 +1,3 @@
-import React from "react";
 import {
   USER_COMMENT_REQUEST,
   USER_COMMENT_SUCCESS,

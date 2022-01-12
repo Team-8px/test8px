@@ -29,8 +29,6 @@ export const listProducts = () => async (dispatch, getState) => {
       config
     );
 
-    console.log(data);
-
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
