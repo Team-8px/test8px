@@ -29,8 +29,6 @@ export const listPosts = () => async (dispatch, getState) => {
       config
     );
 
-    console.log(data, "postAction");
-
     dispatch({
       type: POST_LIST_SUCCESS,
       payload: data,
@@ -65,9 +63,9 @@ export const createPost = (content, image) => async (dispatch, getState) => {
     const reqData = {
       post: { content, image },
     };
-    console.log(reqData, "postActions reqData");
+
     const { data } = await axios.post(`${API_URL}/post`, reqData, config);
-    console.log(data, "postActions");
+
     dispatch({
       type: POST_CREATE_SUCCESS,
       payload: data,

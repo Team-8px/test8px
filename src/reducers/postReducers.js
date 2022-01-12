@@ -9,7 +9,6 @@ import {
 } from "../constants/postConstants";
 
 export const postListReducer = (state = { posts: [] }, action) => {
-  console.log(action.payload, "postListReducer");
   switch (action.type) {
     case POST_LIST_REQUEST:
       return { loading: true, products: [] };
